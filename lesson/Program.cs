@@ -1,4 +1,8 @@
-﻿namespace lesson
+﻿
+//using Insulti;
+using System;
+
+namespace lesson
 {
     public class Program
     {
@@ -8,11 +12,39 @@
         /// <param name="args">The arguments passed to the program</param>
         public static void Main(string[] args)
         {
-            // Write some code here...
-            int n = Convert.ToInt32(Console.ReadLine());
+            int[] vet_sorgente = new int[] { 1, 2, 3, 4, 5, 6, 7 };
+            vettore vet= new vettore(vet_sorgente);
+            Console.WriteLine($"Inizializzata classe vettore: {vet}");
+            //Blame.Suca();
+            //Insulti.Blame.Suca();
 
-            Console.WriteLine("Il perimetro del quadrato è " + n * 4);
-            Console.WriteLine("L'area del quadrato è " + n * n);
+            try
+            {
+                vettore vettore = new vettore(vet_sorgente);
+
+                Console.WriteLine($"Inizializzata classe Vettore: {vettore}");
+                Console.WriteLine($"Valore medio: {vettore.Media()}");
+                Console.WriteLine($"Valore minimo: {vettore.ValoreMinimo()}");
+                Console.WriteLine($"Valore massimo: {vettore.ValoreMassimo()}");
+
+                Console.WriteLine("I numeri pari sono i seguenti:");
+                vettore.printEvenNumber();
+            }
+            catch
+            {
+                Console.WriteLine("Errore");
+            }
+
+            try 
+            {
+                vettore vetxt = new vettore();
+                vetxt.Serialize("mio-file.txt");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Errore");
+            }
+
         }
     }
 }
